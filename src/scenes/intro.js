@@ -9,12 +9,18 @@ export class Intro extends Scene {
     }
 
     event(e){
-        switch (e.keyCode) {
-            case 32: // Space 
-            this.game.screen.clear();
-            this.isActive = false;
-            break;        
-        }        
+
+        if(this.isActive){
+
+            switch (e.keyCode) {
+                case 32: // Space 
+                this.game.screen.clear();
+                this.isActive = false;
+                break;        
+            } 
+
+        }
+       
     }
 
     init(){

@@ -21,8 +21,7 @@ export class Game {
 
     event(e){
       
-        if(this.currentScene.isActive === false){
-            console.log("Смена сцены");
+        if(this.currentScene.isActive === false ){
             this.currentScene = this.scenes[this.currentScene.nexScene];
             this.currentScene.init();
         }

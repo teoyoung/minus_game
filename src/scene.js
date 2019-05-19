@@ -6,6 +6,7 @@ export class Scene {
 
     init(){
         this.isActive = true;
+        this.blockTabe = true;
     }
 
 }
