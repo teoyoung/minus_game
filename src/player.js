@@ -20,7 +20,7 @@ export class Player {
         this.y = 0;
         this.dead = false;
         this.win = false;
-        this.hp = 10;
+        this.hp = hp;
         this.render();
     }
 
@@ -69,11 +69,10 @@ export class Player {
 
                 if(this.maps[this.level + 1]){
                     this.win = true;
-                    alert("WIN");
+                    alert("Отлично!");
                     return false;
                     
                 } else {
-                    alert("Окончательный конец");
                     this.win = true;
                     this.endGame = true;
                 }

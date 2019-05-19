@@ -13,10 +13,8 @@ export class End extends Scene {
 
     render(){  
 
-        this.game.screen.rect(0,0, 50, 50, 'ffeeff');     
-        this.game.screen.rect(20, 20, 50, 50, 'ffeeff');     
-        //this.game.screen.fill('#ff00ff');
-        this.game.screen.addText(110, 240, 'Спасибо за игру', '#ff00ff', 45);
+        this.game.screen.addText(150, 140, 'Конец', '#282828', 45);  
+        this.game.screen.addText(128, 210, 'Спасибо за внимание', '#282828', 18);       
 
     }
 

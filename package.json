@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "bul": "webpack --mode development",
     "dev": "webpack-dev-server"
   },
   "author": "",
