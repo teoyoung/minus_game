@@ -9,11 +9,8 @@ export class RenderCanvas {
 
     createCanvas( width, height ){
         let canvas = document.createElement('canvas');
-        let topPosLeft = window.innerWidth - 480 * 2 - 240;
-        let topPosTop = window.innerHeight - 480 - 240;
-        console.log(topPosLeft);
-        canvas.setAttribute("style", "position:fixed; top:" + topPosTop + "px; left:" + topPosLeft + "px");
-        document.body.appendChild(canvas);
+        let contener = document.getElementById('contener');
+        contener.appendChild(canvas);
         canvas.width = width;
         canvas.height = height;
         return canvas;
