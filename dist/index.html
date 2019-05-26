@@ -2,25 +2,40 @@
 <html >
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
     <title>Document</title>
     <style>
         #contener {
             width: 100%;
-            padding-top: 120px;
+            padding-top: 50px;
         }
         canvas {
             margin: 0 auto;
             display: block;
+            width: 80vw;
+            height: 80vw;
         }
         body{
             background-color: #e0e0e0;
         }
     </style>
+    <link href="./css/styles.css" rel="stylesheet">
 </head>
 <body>
+    <div class="tablo">
+        <p id="ui_lvl" class="_lvl">Level 1</p>
+        <p id="ui_att" class="pop">Попыток: 3</p>
+    </div>
+    <div class="ui_controller" id="ui_controller">
+        <div class="move_controller">
+            <div id="left_btm" keyCode="37"></div>
+            <div id="right_btm" keyCode="39"></div>
+            <div id="up_btm" keyCode="38"></div>
+            <div id="bottom_btm" keyCode="40"></div>
+        </div>
+    </div>   
     <div id="contener"></div>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?reliz:1"></script>
 </body>
 </html>

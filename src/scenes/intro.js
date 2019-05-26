@@ -5,22 +5,14 @@ export class Intro extends Scene {
     constructor(game){
         super(game);
         this.nexScene = "table";
-        document.addEventListener('keydown', (event) => this.event(event, true));
+        //document.addEventListener('keydown', (event) => this.event(event, true));
     }
 
     event(e){
-
         if(this.isActive){
-
-            switch (e.keyCode) {
-                case 32: // Space 
-                this.game.screen.clear();
-                this.isActive = false;
-                break;        
-            } 
-
-        }
-       
+            this.game.screen.clear();
+            this.isActive = false;
+        }       
     }
 
     init(){
@@ -37,8 +29,9 @@ export class Intro extends Scene {
     
         //this.game.screen.fill('#ff00ff');
         this.game.screen.addText(150, 140, 'МИНУС', '#282828', 45);  
-        this.game.screen.addText(30, 210, 'Ваша задача добраться до цели не потратив все жизни', '#282828', 18);       
-        this.game.screen.addText(60, 340, 'Нажми пробел чтобы начать игру', '#282828', 24);
+        this.game.screen.addText(300, 90, 'Beta 1.1', '#282828', 18);       
+        this.game.screen.addText(50, 210, 'Доберись до цели не потратив все баллы', '#282828', 18);       
+        this.game.screen.addText(20, 340, 'Нажми любую кнопку чтобы начать', '#282828', 24);
 
     }
 

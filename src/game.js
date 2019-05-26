@@ -1,4 +1,5 @@
 import {RenderCanvas} from './render-canvas';
+import {EventsConvert} from './events-convert';
 import { Intro } from "./scenes/intro";
 import { Table } from "./scenes/table";
 import { End } from "./scenes/end";
@@ -15,24 +16,28 @@ export class Game {
         }
         this.currentScene = this.scenes.intro;
         this.currentScene.init();
-        document.addEventListener('keydown', (event) => this.event(event, true));
-
+        this.eventsConvert = new EventsConvert();
+        document.addEventListener('keydown', (event) => this.keyboardEvents(event));
+        ui_controller.addEventListener("touchstart", (event) => this.touchEvents(event));
     }
 
-    event(e){
-      
+    event(){      
         if(this.currentScene.isActive === false ){
             this.currentScene = this.scenes[this.currentScene.nexScene];
             this.currentScene.init();
         }
-
     }
 
-    run(){        
-        console.log("3333");
+    keyboardEvents(e){
+        let keyCode = this.eventsConvert.keyboard(e);
+        this.currentScene.event(keyCode);
+        this.event();
     }
 
-    update(){
-        console.log('update');
+    touchEvents(e){
+        let keyCode = this.eventsConvert.touch(e);
+        this.currentScene.event(keyCode);
+        this.event();
     }
+    
 }

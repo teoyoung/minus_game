@@ -1,0 +1,88 @@
+.bg_ui {
+    position: fixed;
+    left:0;
+    right: 0;
+    bottom: 0;
+    height: 300px;
+
+}
+
+.bg_key {
+    width: 50vw;
+    height: 50vw;
+    background-position: center;
+    background-size: cover;
+    float: right;
+}
+
+.ui_controller {
+    position: fixed;
+    left:0;
+    right: 0;
+    bottom: 0;
+    height: 54vw;
+    padding-right: 25vw;
+}
+
+.move_controller {
+    position: relative;
+    width: 50vw;
+    height: 50vw;
+    background-image: url(../img/bg_keyboard.png);
+    background-position: center;
+    background-size: cover;
+    float: right;
+}
+
+.move_controller div {
+    position: absolute;
+    cursor: pointer;
+    background-position: center;
+    background-size: cover;
+    width: 18vw;
+    height: 18vw;
+}
+
+#left_btm {
+    background-image: url('../img/left_btm.png');
+    right: 30vw;
+    top:16vw;
+}
+
+#right_btm {
+    background-image: url('../img/right_btm.png');
+    right: 2vw;
+    top:16vw;
+}
+
+#up_btm {
+    background-image: url('../img/up_btm.png');
+    right: 16vw;
+    top:2vw;
+}
+
+#bottom_btm {
+    background-image: url('../img/bottom_brm.png');
+    right: 16vw;
+    top:30.5vw;
+}
+
+.tablo {
+    position: fixed;
+    left:0;
+    right: 0;
+    top:0;
+    height: 12vw;
+    padding-bottom: 1vw;
+    border-bottom: 1px solid #262626;
+    padding-left: 6vw;
+    padding-right: 6vw;
+}
+
+.pop {
+    float:left;
+}
+
+._lvl {
+    float: right;
+}

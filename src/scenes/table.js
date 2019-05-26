@@ -9,23 +9,24 @@ export class Table extends Scene {
         super(game);
         this.nexScene = "end";
         this.level = 0;
+        this.attempts = 3;
         this.maps = new Maps().maps;
         this.nowHP = new Maps().hp;
         this.player = new Player(this.maps, this.level, 0, 0, this.nowHP[this.level]);
         this.grid = new Grid(game, this.player);
-        document.addEventListener('keydown', (event) => this.event(event, true));
+        //document.addEventListener('keydown', (event) => this.event(event, true));
     }
 
     init(){
         super.init();
-        this.render();
+        this.render();        
     }
 
     event(e){
 
         if(this.isActive){
-     
-            switch (e.keyCode) {
+
+            switch (e) {
                 case 39: // Right
                     this.player.moveRight();
                     this.render();
@@ -64,10 +65,18 @@ export class Table extends Scene {
     }
 
     render(){
-        if(this.player.dead){            
+        if(this.player.dead){  
+            if (this.attempts <= 1){
+                this.level = 0;
+                this.attempts = 3;
+                this.game.screen.clear();
+                this.isActive = false;
+            }          
             this.restert();
+            this.attempts -= 1;
         } else if(this.player.win){
             this.level += 1;
+            this.attempts += 2;
             if( this.maps[this.level]){
                 this.nextLevel();
             } else {
@@ -76,6 +85,9 @@ export class Table extends Scene {
             }
             
         }
+        let lvlconvert = this.level + 1;
+        ui_lvl.innerHTML = 'Level ' + lvlconvert;
+        ui_att.innerHTML = 'Попыток ' + this.attempts;
         if (this.isActive){
             this.grid.render(this.maps, this.level);
         }

@@ -62,7 +62,7 @@ export class Player {
 
     collider( posX, posY ){
 
-        if(!this.maps[this.level][posY][posX]){
+        if(!this.maps[this.level][posY][posX] || this.maps[this.level][posY][posX] === 'f'){
             console.log("Преграда", this.maps[this.level][posY][posX]);
         } else {
             if(this.maps[this.level][posY][posX] === 'x'){
