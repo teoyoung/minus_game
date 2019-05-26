@@ -97,3 +97,15 @@
 @media (min-width: 1000px) {
     .ui_controller {display: none;}
 }
+
+#contener {
+    width: 100%;
+    padding-top: 50px;
+}
+canvas {
+    margin: 0 auto;
+    display: block;
+}
+body{
+    background-color: #e0e0e0;
+}
