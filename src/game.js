@@ -14,7 +14,7 @@ export class Game {
             'table': new Table( this ),
             'end': new End( this )
         }
-        this.currentScene = this.scenes.intro;
+        this.currentScene = this.scenes.table;
         this.currentScene.init();
         this.eventsConvert = new EventsConvert();
         document.addEventListener('keydown', (event) => this.keyboardEvents(event));
