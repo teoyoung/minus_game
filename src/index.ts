@@ -1,4 +1,7 @@
+import Boot from './engine/boot';
 import {Game} from './game';
+import GameEngine from './game_v2';
+
 const Baobab = require('baobab');
 
 var tree = new Baobab({
@@ -13,13 +16,17 @@ var tree = new Baobab({
 
 var stage = tree.select('stage', 'current');
 
-const app = new Game(tree);  
-// stage.on('update', function() {
-//     app.init();
-// });
+Boot.init();
+
+const app2 = new GameEngine();
+
+// const app = new Game(tree);  
+// // stage.on('update', function() {
+// //     app.init();
+// // });
 
 
 
-window.onload = () => {
-    app.create();
-}
+// window.onload = () => {
+//     app.create();
+// }

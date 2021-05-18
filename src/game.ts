@@ -35,7 +35,6 @@ export class Game {
 
     private nextStage(){
         let current = this.tree.select('stage', 'current');
-        console.log('ddd', current.get());
         this.stages[this.currentStage].clear();
         this.stages[current.get()].create();
         this.currentStage = current.get();
