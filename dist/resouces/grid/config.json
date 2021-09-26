@@ -1,0 +1,16 @@
+{
+    "assets": {
+        "textures": {
+            "place": "resouces/grid/assets/textures/track.png"
+        }
+    },
+    "config": {
+        "maps": [
+            [
+                [" "," "," "," "],
+                [" "," ","x"," "],
+                [" "," "," "," "]
+            ]
+        ]
+    }
+}

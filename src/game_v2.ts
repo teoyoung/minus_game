@@ -1,41 +1,49 @@
 import { Application } from "pixi.js";
-import BaobabManager, {BaobabSelect} from "./engine/baobab_manager";
-import { boot } from "./engine/boot";
-import { Scene } from "./modules/scene";
-import { GamePlace } from "./scenes/game_place";
-import { Intro } from "./scenes/intro";
-import { Win } from "./scenes/win";
+import InitStage from "./core/init_stage";
+import Stage from "./core/stage";
+import InitLobby from "./stages/lobby/initLobby";
+import InitGrid from "./stages/grids/InitGrid";
+
+interface ModulesMap {[stage: string]: new () => InitStage}
+
+const modules: ModulesMap = {
+    lobby: InitLobby,
+    grid: InitGrid
+}
 
 export default class GameEngine {
 
-    private readonly game: Application;
-    private readonly stageMap: {[stage: string]: new (game: Application, tree:any) => Scene};
-    private readonly baobabManager: BaobabManager;
+    private readonly app: Application;
+    private currentInit: InitStage;
+    private currentStage: Stage;
 
     constructor() {
-        this.game = new Application({
-            width: 720, height: 1080, backgroundColor: 0xffffff, resolution: window.devicePixelRatio || 1,
+        this.app = new Application({
+            width: 1080, height: 720, backgroundColor: 0xffffff, resolution: window.devicePixelRatio || 1,
         });
+        document.body.appendChild(this.app.view);
+        this.initModule('grid', 'grid');
 
-        this.stageMap = {
-            intro: Intro,
-            gamePlace: GamePlace,
-            win: Win,
-        };
-
-        this.baobabManager = new BaobabManager();
-
-
-        this.initStage();
+        // setTimeout(() => {
+        //     this.swithStage('windowLobby');
+        // }, 9000);
     }
 
-    private async initStage() {
-        const config = await boot.loadConfig('res/lal.json');
-        console.log(config);
+    private async initModule(name: string, startStage: string) {
+        if(!modules[name]) {
+            return;
+        }
+        this.currentInit = new modules[name];
+        this.currentStage = await this.currentInit.getStage(startStage);
+        this.app.stage.addChild(this.currentStage.view);
+        this.currentStage.postTransition();
     }
 
-    public create(){
-        document.body.appendChild(this.game.view);
+    private async swithStage(name: string){
+        this.app.stage.removeChild(this.currentStage.view);
+        const stage = await this.currentInit.getStage(name);
+        this.app.stage.addChild(stage.view);
+        stage.postTransition();
     }
 
 }

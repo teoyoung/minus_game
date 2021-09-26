@@ -4,21 +4,21 @@ import GameEngine from './game_v2';
 
 const Baobab = require('baobab');
 
-var tree = new Baobab({
-    stage: {
-      current: 'intro',
-      level: 0
-    },
-    player: {
-        hp: '10'
-    }
-});
+// var tree = new Baobab({
+//     stage: {
+//       current: 'intro',
+//       level: 0
+//     },
+//     player: {
+//         hp: '10'
+//     }
+// });
 
-var stage = tree.select('stage', 'current');
+// var stage = tree.select('stage', 'current');
 
-Boot.init();
+// Boot.init();
 
-const app2 = new GameEngine();
+// const app2 = new GameEngine();
 
 // const app = new Game(tree);  
 // // stage.on('update', function() {
@@ -30,3 +30,5 @@ const app2 = new GameEngine();
 // window.onload = () => {
 //     app.create();
 // }
+
+const app = new GameEngine();
